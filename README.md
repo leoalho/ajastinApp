@@ -1,5 +1,4 @@
 # Ohjelmistotekniikan harjoitustyö, syksy 2022
-HY Ohjelmistotekniikan kurssin repositorio.
 ## Tehtävät
 **Viikko1**
 
