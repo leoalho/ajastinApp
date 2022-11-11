@@ -6,3 +6,10 @@
 
 [komentorivi.txt](./laskarit/viikko1/komentorivi.txt)
 
+**Viikko2**
+
+[Maksukortti](./laskarit/viikko2/maksukortti)
+
+[Unicafe](./laskarit/viikko2/unicafe)
+
+[coverage.png](./laskarit/viikko2/coverage.png)
