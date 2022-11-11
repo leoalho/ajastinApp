@@ -1,4 +1,6 @@
-# Ohjelmistotekniikan harjoitustyö, syksy 2022
+# Ohjelmistotekniikka, syksy 2022
+## Harjoitustyö
+[Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md) 
 ## Tehtävät
 **Viikko1**
 
