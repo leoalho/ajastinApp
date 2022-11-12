@@ -8,6 +8,10 @@ Sovelluksen tarkoituksena on seurata töiden ja muiden projektien ajankäyttöä
 
 Sovelluksessa on toistaiseksi vain yksi käyttäjäryhmä: normaali käyttäjä
 
+## Käyttöliittymäluonnos
+
+![](./kuvat/kayttoliittymaluonnos.png)
+
 ## Toiminnallisuus
 
 ### Kirjautumisnäkymä
