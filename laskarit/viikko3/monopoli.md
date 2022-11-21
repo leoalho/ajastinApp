@@ -1,13 +1,9 @@
 ```mermaid
 classDiagram
-	class peli
-	class noppa
-	class pelilauta
 	class ruutu{
 		seuraava ruutu
 		toiminto()
 	}
-	class pelinappula
 	class kortti{
 		toiminto()
 	}
@@ -34,6 +30,5 @@ classDiagram
 	ruutu "1" -- "0...1" pelinappula
 	pelinappula "1" -- "1" pelaaja
 	pelilauta "1" -- "40"  ruutu
-	
 ```
 	
