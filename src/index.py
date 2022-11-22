@@ -1,29 +1,16 @@
-from tkinter import Tk, ttk, constants
+from tkinter import Tk
+from ui.ui import UI
 
-class UI:
-    def __init__(self, root):
-        self._root = root
+def main():
+    root = Tk()
+    root.geometry("300x250")
+    root.resizable(False,False)
+    root.title("Timer")
 
-    def start(self):
-        heading_label = ttk.Label(master=self._root, text="Enter username or click create user.")
+    view = UI(root)
+    view.start()
 
-        username_label = ttk.Label(master=self._root, text="Username")
-        username_entry = ttk.Entry(master=self._root)
+    root.mainloop()
 
-        login_button = ttk.Button(master=self._root, text="Login")
-        signup_button = ttk.Button(master=self._root, text="Create user")
-
-        heading_label.grid(row=0, column=0, columnspan=4)
-        username_label.grid(row=1, column=0)
-        username_entry.grid(row=1, column=1)
-        login_button.grid(row=3, column=0, columnspan=2)
-        signup_button.grid(row=3, column=2, columnspan=2)
-
-
-window = Tk()
-window.title("Login")
-
-ui = UI(window)
-ui.start()
-
-window.mainloop()
+if __name__ == "__main__":
+    main()
