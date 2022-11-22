@@ -3,7 +3,7 @@ import os
 
 def connect():
   dirname = os.path.dirname(__file__)
-  DATABASE_FILE_PATH = os.path.join(dirname, "..", "data", "database.db")
+  DATABASE_FILE_PATH = os.path.join(dirname, "..", "database.db")
   db = sqlite3.connect(DATABASE_FILE_PATH)
   return db
 
