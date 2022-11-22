@@ -7,9 +7,9 @@ Sovelluksen tarkoituksena on seurata töiden ja muiden projektien ajankäyttöä
 
 ## Komentorivitoiminnot
 
-Ohjelman käynnistäminen: poetry run invoke start 
+Ohjelman käynnistäminen: **poetry run invoke start** 
 
-Testien suoritus: poetry run invoke test
+Testien suoritus: **poetry run invoke test**
 
-Testikattavuusraportin generointi: poetry run invoke coverage-report Raportti generoituu gitignorattuun ./_htmlcov_-hakemistoon.
+Testikattavuusraportin generointi: **poetry run invoke coverage-report** Raportti generoituu gitignorattuun ./_htmlcov_-hakemistoon.
 
