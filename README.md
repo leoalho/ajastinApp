@@ -7,6 +7,8 @@ Sovelluksen tarkoituksena on seurata töiden ja muiden projektien ajankäyttöä
 
 ## Komentorivitoiminnot
 
+Riippuvuuksien asentaminen: **poetry install**
+
 Ohjelman käynnistäminen: **poetry run invoke start** 
 
 Testien suoritus: **poetry run invoke test**
