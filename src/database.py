@@ -2,10 +2,10 @@ import sqlite3
 import os
 
 def connect():
-  dirname = os.path.dirname(__file__)
-  DATABASE_FILE_PATH = os.path.join(dirname, "..", "database.db")
-  db = sqlite3.connect(DATABASE_FILE_PATH)
-  return db
+    dirname = os.path.dirname(__file__)
+    DATABASE_FILE_PATH = os.path.join(dirname, "..", "database.db")
+    db = sqlite3.connect(DATABASE_FILE_PATH)
+    return db
 
 def initialize_users(db):
     db.execute("DROP TABLE IF EXISTS users;")
