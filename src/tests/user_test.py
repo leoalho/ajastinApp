@@ -1,6 +1,7 @@
 import unittest
 from entities.user import User
 
+
 class TestMaksukortti(unittest.TestCase):
     def setUp(self):
         self.user = User("Testman", "secret")

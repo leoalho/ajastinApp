@@ -1,16 +1,18 @@
 from tkinter import Tk
-from ui.ui import UI
+from ui.ui import UI, initRoot
+import database
 
 def main():
-    root = Tk()
-    root.geometry("300x250")
-    root.resizable(False,False)
-    root.title("Timer")
+    connection = database.connect()
 
-    view = UI(root)
+    root = Tk()
+    initRoot(root)
+
+    view = UI(root, connection)
     view.start()
 
     root.mainloop()
+
 
 if __name__ == "__main__":
     main()
