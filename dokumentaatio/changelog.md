@@ -8,3 +8,10 @@
 - Käyttäjä voi kirjautumisen jälkeen ottaa aikaa yksinkertaisella sekuntikellolla. Ajanoton arvoja ei vielä tallenneta tietokantaan.
 - Luotu Invoke-taskit ohjelman käynnistämiselle, testaamiselle, ja coverage-reporttia varten
 - Luotu yksittäinen yksinkertainen testi käyttäjäluokalle
+
+## Viikko 4
+- Siirretty ajastimen toiminnallisuus MainView-luokasta TimerService-luokkaan
+- Luotu käyttäjien toiminnallisuutta varten oma luokka: UserService
+- Laajennettu ajastimen toiminnallisuutta: sekuntien sijaan näkyy sekunnit, minuutit ja tunnit
+- Otettu ympäristömuuttujat käyttöön .env-kansioon
+- Aloitettu lintaus
