@@ -1,4 +1,4 @@
-from entities.user import User
+#from entities.user import User
 import database
 
 class TimerService:

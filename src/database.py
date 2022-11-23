@@ -4,19 +4,14 @@ import os
 def connect():
     dirname = os.path.dirname(__file__)
     DATABASE_FILE_PATH = os.path.join(dirname, "..", "database.db")
-    db = sqlite3.connect(DATABASE_FILE_PATH)
-    return db
+    database = sqlite3.connect(DATABASE_FILE_PATH)
+    return database
 
-def initialize_users(db):
-    db.execute("DROP TABLE IF EXISTS users;")
-    db.execute("CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT);")
-    db.execute("INSERT INTO users(username) VALUES('Test')")
+def initialize_users(database):
+    database.execute("DROP TABLE IF EXISTS users;")
+    database.execute("CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT);")
+    database.execute("INSERT INTO users(username) VALUES('Test')")
 
-def all_users(db):
-    users = db.execute("SELECT * FROM users").fetchall()
+def all_users(database):
+    users = database.execute("SELECT * FROM users").fetchall()
     return users
-
-
-
-
-
