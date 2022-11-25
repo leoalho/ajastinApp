@@ -3,8 +3,10 @@ from ui.ui import UI, initRoot
 import database
 
 def main():
+    exists = database.database_exists()
     connection = database.connect()
-    database.initialize(connection)
+    if not exists:
+        database.initialize(connection)
 
     root = Tk()
     initRoot(root)

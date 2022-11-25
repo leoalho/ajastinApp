@@ -1,8 +1,4 @@
-from ui.views.mainView import MainView
 from ui.views.loginView import LoginView
-from ui.views.projectView import ProjectView
-from services.timer_service import TimerService
-from services.user_service import UserService
 from services.main_service  import MainService
 
 def initRoot(root): 
@@ -12,11 +8,8 @@ def initRoot(root):
 
 class UI:
     def __init__(self, root, connection):
-        self._userService = UserService(connection)
         self._main_service = MainService(connection)
-        self._connection = connection
-        self._root = root
-        self._current_view = LoginView(self._root, self._mover, self._main_service)
+        self._current_view = LoginView(root, self._mover, self._main_service)
 
     def start(self):
         self._current_view.pack()

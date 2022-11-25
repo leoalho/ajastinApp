@@ -7,7 +7,6 @@ class LoginView():
         self._frame = None
         self._mover = mover
         self._main_service = main_service
-        self._user_service = main_service.get_user_service()
         self._usernameInput = ""
         self._initialize()
         
@@ -15,13 +14,13 @@ class LoginView():
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         self._entry = ttk.Entry(master=self._frame)
-        button = ttk.Button(master=self._frame,
+        login_button = ttk.Button(master=self._frame,
                             text="Login", command=self._login)
         self._entry.pack()
-        button.pack()
+        login_button.pack()
 
     def _login(self):
-        if self._user_service.login(self._entry.get()):
+        if self._main_service.login(self._entry.get()):
             self._mover(ProjectView(self._root, self._main_service, self._mover))
         else:
             return

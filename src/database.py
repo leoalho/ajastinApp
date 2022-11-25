@@ -1,10 +1,14 @@
 import sqlite3
 from config import DATABASE_FILE_PATH
+from os.path import exists
 
 def connect():
     database = sqlite3.connect(DATABASE_FILE_PATH)
     database.isolation_level = None
     return database
+
+def database_exists():
+    return exists(DATABASE_FILE_PATH)
 
 def initialize(database):
     initialize_users(database)
@@ -44,8 +48,19 @@ def user_projects(database, user_id):
          WHERE P.id=PO.project_id and PO.user_id=?""", [user_id]).fetchall()
     return projects
 
-def project_time(database, project_id):
+def project_sum_time(database, project_id):
     time = database.execute(
         """SELECT SUM(time) FROM logs
         WHERE project_id=?""",[project_id]).fetchone()
     return time
+
+def project_all_times(database, project_id):
+    time = database.execute(
+        """SELECT * FROM logs
+        WHERE project_id=?""",[project_id]).fetchall()
+    return time
+
+def new_time(database, project_id, user_id, time):
+    database.execute(
+        """INSERT INTO logs (project_id, user_id, time)
+        VALUES (?,?,?)""",[project_id, user_id, time])
