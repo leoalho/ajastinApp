@@ -13,5 +13,6 @@
 - Siirretty ajastimen toiminnallisuus MainView-luokasta TimerService-luokkaan
 - Luotu käyttäjien toiminnallisuutta varten oma luokka: UserService
 - Laajennettu ajastimen toiminnallisuutta: sekuntien sijaan näkyy sekunnit, minuutit ja tunnit
+- Lisätty projektinäkymä, joka mahdollistaa jo luoduita projekteista projektin valinnan
 - Otettu ympäristömuuttujat käyttöön .env-kansioon
 - Aloitettu lintaus

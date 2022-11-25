@@ -4,6 +4,7 @@ import database
 
 def main():
     connection = database.connect()
+    database.initialize(connection)
 
     root = Tk()
     initRoot(root)
