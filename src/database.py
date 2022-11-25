@@ -1,6 +1,6 @@
 import sqlite3
-from config import DATABASE_FILE_PATH
 from os.path import exists
+from config import DATABASE_FILE_PATH
 
 def connect():
     database = sqlite3.connect(DATABASE_FILE_PATH)
@@ -64,3 +64,4 @@ def new_time(database, project_id, user_id, time):
     database.execute(
         """INSERT INTO logs (project_id, user_id, time)
         VALUES (?,?,?)""",[project_id, user_id, time])
+        

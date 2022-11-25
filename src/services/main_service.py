@@ -51,7 +51,7 @@ class MainService():
         self._session_time += self._current_time
         database.new_time(self._connection, self._project[0], self._user[0], self._current_time)
         self._current_time = 0
-        
+
     def toggle_timer(self):
         if not self._timer:
             self._timer = True
