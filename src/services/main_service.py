@@ -38,7 +38,13 @@ class MainService():
 
     def logout(self):
         self._user = None
+        self.close_project()
+
+    def close_project(self):
         self._project = None
+        self._current_time = 0
+        self._session_time = 0
+        self._timer = False
 
     def get_user(self):
         return self._user[1]

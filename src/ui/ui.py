@@ -2,7 +2,7 @@ from ui.views.loginView import LoginView
 from services.main_service  import MainService
 
 def initRoot(root): 
-    root.geometry("300x250")
+    root.geometry("640x480")
     root.resizable(False, False)
     root.title("Timer")
 
