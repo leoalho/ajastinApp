@@ -10,9 +10,10 @@
 - Luotu yksittäinen yksinkertainen testi käyttäjäluokalle
 
 ## Viikko 4
-- Siirretty ajastimen toiminnallisuus MainView-luokasta TimerService-luokkaan
-- Luotu käyttäjien toiminnallisuutta varten oma luokka: UserService
-- Laajennettu ajastimen toiminnallisuutta: sekuntien sijaan näkyy sekunnit, minuutit ja tunnit
+- Siirretty ajastimen toiminnallisuus MainView-luokasta main_service-luokkaan
+- Laajennettu ajastimen toiminnallisuutta: sekuntien sijaan näkyvät sekunnit, minuutit ja tunnit
 - Lisätty projektinäkymä, joka mahdollistaa jo luoduita projekteista projektin valinnan
+- Lisätty näkymät ja toiminnallisuus käyttäjien ja projektien lisäämiseksi
+- Lisätty mahdollisuus uloskirjautumiseen sekä projektien vaihtamiseen
 - Otettu ympäristömuuttujat käyttöön .env-kansioon
 - Aloitettu lintaus

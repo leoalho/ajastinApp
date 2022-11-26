@@ -1,5 +1,4 @@
-from tkinter import ttk, StringVar
-from ui.views.projectView import ProjectView
+from tkinter import ttk
 
 class LoginView():
     def __init__(self, root, mover, main_service) -> None:
@@ -13,17 +12,29 @@ class LoginView():
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+        general_info = ttk.Label(master=self._frame, text="Login")
+        username = ttk.Label(master=self._frame, text="Username: ")
         self._entry = ttk.Entry(master=self._frame)
         login_button = ttk.Button(master=self._frame,
                             text="Login", command=self._login)
-        self._entry.pack()
-        login_button.pack()
+        new_user_button = ttk.Button(master=self._frame,
+                            text="create new user", command=self._create_user)
+        general_info.grid(row=0, column=0, columnspan=3)
+        username.grid(row=1, column=0)
+        self._entry.grid(row=1, column=1, columnspan=2)
+        login_button.grid(row=2, column=0)
+        new_user_button.grid(row=2, column=1)
 
     def _login(self):
         if self._main_service.login(self._entry.get()):
-            self._mover(ProjectView(self._root, self._main_service, self._mover))
+            from ui.views.projectView import ProjectView
+            self._mover(ProjectView(self._root, self._mover, self._main_service))
         else:
             return
+
+    def _create_user(self):
+        from ui.views.new_user_view import NewUser
+        self._mover(NewUser(self._root, self._mover, self._main_service))
 
     def pack(self):
         self._frame.pack()

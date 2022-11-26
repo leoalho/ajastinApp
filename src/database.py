@@ -17,12 +17,12 @@ def initialize(database):
 
 def initialize_users(database):
     database.execute("DROP TABLE IF EXISTS users;")
-    database.execute("CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT);")
+    database.execute("CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT UNIQUE);")
     database.execute("INSERT INTO users(username) VALUES('Test')")
 
 def initialize_projects(database):
     database.execute("DROP TABLE IF EXISTS projects")
-    database.execute("CREATE TABLE projects (id INTEGER PRIMARY KEY, projectname TEXT);")
+    database.execute("CREATE TABLE projects (id INTEGER PRIMARY KEY, projectname TEXT UNIQUE);")
     database.execute("INSERT INTO projects(projectname) VALUES('TestProject')")
     database.execute("DROP TABLE IF EXISTS projectOwners")
     database.execute(
@@ -65,3 +65,14 @@ def new_time(database, project_id, user_id, time):
         """INSERT INTO logs (project_id, user_id, time)
         VALUES (?,?,?)""",[project_id, user_id, time])
         
+def create_user(database, username):
+    database.execute(
+        """INSERT INTO users (username) values (?)""",[username]
+    )
+
+def create_project(database, user_id, project_name):
+    cursor=database.cursor()
+    cursor.execute("INSERT INTO projects(projectname) VALUES(?)", [project_name])
+    project_id = cursor.lastrowid
+    cursor.execute("INSERT INTO projectOwners(project_id, user_id) VALUES(?,?)", [project_id, user_id])
+    

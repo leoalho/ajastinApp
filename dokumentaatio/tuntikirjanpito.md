@@ -9,4 +9,5 @@
 | 23.11 | 3   | Aloitettu lintaus, otettu käyttöön ympäristömuuttujat, siirretty ajastimen toiminnallisuus pois MainViewsta, timer_serviceen. Luotu käyttäjien toiminnallisuutta varten oma luokka: UserService. |
 | 24.11 | 3   | Luotu tietokantaan projects-taulu, lisätty projektitieto päänäkymään |
 | 25.11 | 5   | Luotu tietokantaan logs-taulu, lisätty projektinäkymä |
-| yht   | 26  | | 
+| 26.11 | 3   | Sisäänirjautuminen, projektien lisääminen, uloskirjautuminen, projektien vaihtaminen |
+| yht   | 29  | | 

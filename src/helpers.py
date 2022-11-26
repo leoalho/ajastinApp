@@ -1,4 +1,6 @@
 def time_to_string(time):
+    if not time:
+        return "0 s"
     remaining = time
     result = ""
     if remaining>3600:
