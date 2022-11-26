@@ -3,15 +3,15 @@ from ui.ui import UI, initRoot
 import database
 
 def main():
-    exists = database.database_exists()
-    connection = database.connect()
-    if not exists:
-        database.initialize(connection)
+    #exists = database.database_exists()
+    #connection = database.connect()
+    #if not exists:
+    #    database.initialize(connection)
 
     root = Tk()
     initRoot(root)
 
-    view = UI(root, connection)
+    view = UI(root)
     view.start()
 
     root.mainloop()

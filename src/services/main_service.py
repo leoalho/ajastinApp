@@ -1,17 +1,16 @@
-import database
+from repositories.project_repository import project_repository
+from repositories.user_repository import user_repository
+from entities.timer import Timer
 import helpers
 
 class MainService():
-    def __init__(self, connection) -> None:
+    def __init__(self) -> None:
         self._user = None
         self._project = None
-        self._connection = connection
-        self._current_time = 0
-        self._session_time = 0
-        self._timer = False
+        self.timer = Timer()
 
     def login(self, username):
-        users = database.all_users(self._connection)
+        users = user_repository.all_users()
         for user in users:
             if username == user[1]:
                 self._user = user
@@ -20,10 +19,10 @@ class MainService():
         return False
 
     def set_projects(self):
-        self._projects = database.user_projects(self._connection, self._user[0])
+        self._projects = project_repository.user_projects(self._user[0])
 
     def get_projects(self):
-        return database.user_projects(self._connection, self._user[0])
+        return project_repository.user_projects(self._user[0])
 
     def get_project_names(self):
         projects = self.get_projects()
@@ -42,44 +41,37 @@ class MainService():
 
     def close_project(self):
         self._project = None
-        self._current_time = 0
-        self._session_time = 0
-        self._timer = False
 
     def get_user(self):
         return self._user[1]
 
     def tick(self):
-        self._current_time += 1
-        return helpers.time_to_string(self._current_time)
+        return self.timer.tick()
 
     def reset(self):
-        self._session_time += self._current_time
-        database.new_time(self._connection, self._project[0], self._user[0], self._current_time)
-        self._current_time = 0
-
+        new_time = self.timer.reset()
+        project_repository.new_time(self._project[0], self._user[0], new_time)
+        
     def toggle_timer(self):
-        if not self._timer:
-            self._timer = True
-        else:
-            self._timer = False
+        self.timer.toggle_timer()
+        if not self.timer.get_timer():
             self.reset()
 
     def get_timer(self):
-        return self._timer
+        return self.timer.get_timer()
 
     def get_current_time(self):
-        return helpers.time_to_string(self._current_time)
+        return self.timer.get_current_time()
 
     def get_session_time(self):
-        return helpers.time_to_string(self._session_time)
+        return self.timer.get_session_time()
 
     def get_project_time(self):
-            project_time = database.project_sum_time(self._connection, self._project[0])
-            return helpers.time_to_string(project_time[0])
+        project_time = project_repository.project_sum_time(self._project[0])
+        return helpers.time_to_string(project_time[0])
 
     def create_user(self, username):
-        database.create_user(self._connection, username)
+        user_repository.create_user(username)
 
     def create_project(self, project_name):
-        database.create_project(self._connection, self._user[0], project_name)
+        project_repository.create_project(self._user[0], project_name)

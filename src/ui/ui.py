@@ -7,8 +7,8 @@ def initRoot(root):
     root.title("Timer")
 
 class UI:
-    def __init__(self, root, connection):
-        self._main_service = MainService(connection)
+    def __init__(self, root):
+        self._main_service = MainService()
         self._current_view = LoginView(root, self._mover, self._main_service)
 
     def start(self):
