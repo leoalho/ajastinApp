@@ -17,4 +17,5 @@
 - Lisätty näkymät ja toiminnallisuus käyttäjien ja projektien lisäämiseksi
 - Lisätty mahdollisuus uloskirjautumiseen sekä projektien vaihtamiseen
 - Otettu ympäristömuuttujat käyttöön .env-kansioon
+- Lisätty uusi taski tietokannan alustamista varten
 - Aloitettu lintaus Pylintilla
