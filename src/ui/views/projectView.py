@@ -15,7 +15,7 @@ class ProjectView():
         userInfo = ttk.Label(master=self._frame, text=f"Logged in as {self._main_service.get_user()}")
         logout_button = ttk.Button(master=self._frame, text="Logout", command=self._logout)
         general_info = ttk.Label(master=self._frame, text="Select a project or create a new one")
-        projectList = tk.Variable(value = self._main_service.get_project_names())
+        projectList = tk.Variable(value = self._main_service.get_projects())
         self._projects = tk.Listbox(self._frame, listvariable=projectList, height=6, selectmode=tk.SINGLE)
         select_project_button = ttk.Button(master=self._frame, text="Select project", command=self._select_project)
         new_project_button = ttk.Button(master=self._frame, text="New project", command=self._new_project)
