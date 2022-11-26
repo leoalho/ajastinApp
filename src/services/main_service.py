@@ -8,7 +8,7 @@ class MainService():
         self._user = None
         self._project = None
         self._projects = []
-        self.timer = Timer()
+        self._timer = Timer()
 
     def login(self, username):
         users = user_repository.all_users()
@@ -47,25 +47,25 @@ class MainService():
         return self._user[1]
 
     def tick(self):
-        return self.timer.tick()
+        return self._timer.tick()
 
     def reset(self):
-        new_time = self.timer.reset()
+        new_time = self._timer.reset()
         project_repository.new_time(self._project[0], self._user[0], new_time)
 
     def toggle_timer(self):
-        self.timer.toggle_timer()
-        if not self.timer.get_timer():
+        self._timer.toggle_timer()
+        if not self._timer.get_timer():
             self.reset()
 
     def get_timer(self):
-        return self.timer.get_timer()
+        return self._timer.get_timer()
 
     def get_current_time(self):
-        return self.timer.get_current_time()
+        return self._timer.get_current_time()
 
     def get_session_time(self):
-        return self.timer.get_session_time()
+        return self._timer.get_session_time()
 
     def get_project_time(self):
         project_time = project_repository.project_sum_time(self._project[0])

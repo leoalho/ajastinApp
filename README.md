@@ -17,3 +17,5 @@ Testien suoritus: **poetry run invoke test**
 
 Testikattavuusraportin generointi: **poetry run invoke coverage-report** Raportti generoituu gitignorattuun ./_htmlcov_-hakemistoon.
 
+pylint raportti: **poetry run invoke lint**
+
