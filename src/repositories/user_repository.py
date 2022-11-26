@@ -12,7 +12,5 @@ class UserRepository:
     def all_users(self):
         users = self._connection.execute("SELECT * FROM users").fetchall()
         return users
-    
-    
 
 user_repository = UserRepository(get_database_connection())

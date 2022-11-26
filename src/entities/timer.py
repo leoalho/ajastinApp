@@ -24,9 +24,9 @@ class Timer:
 
     def get_current_time(self):
         return helpers.time_to_string(self._current_time)
-    
+
     def get_session_time(self):
         return helpers.time_to_string(self._session_time)
-    
+
     def get_timer(self):
         return self._timer_on

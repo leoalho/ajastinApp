@@ -7,6 +7,7 @@ class MainService():
     def __init__(self) -> None:
         self._user = None
         self._project = None
+        self._projects = []
         self.timer = Timer()
 
     def login(self, username):
@@ -51,7 +52,7 @@ class MainService():
     def reset(self):
         new_time = self.timer.reset()
         project_repository.new_time(self._project[0], self._user[0], new_time)
-        
+
     def toggle_timer(self):
         self.timer.toggle_timer()
         if not self.timer.get_timer():

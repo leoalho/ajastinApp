@@ -9,6 +9,8 @@ Sovelluksen tarkoituksena on seurata töiden ja muiden projektien ajankäyttöä
 
 Riippuvuuksien asentaminen: **poetry install**
 
+Tietokannan alustaminen: **poetry run invoke build**
+
 Ohjelman käynnistäminen: **poetry run invoke start** 
 
 Testien suoritus: **poetry run invoke test**

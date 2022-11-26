@@ -20,7 +20,9 @@ class ProjectRepository:
         cursor=self._connection.cursor()
         cursor.execute("INSERT INTO projects(projectname) VALUES(?)", [project_name])
         project_id = cursor.lastrowid
-        cursor.execute("INSERT INTO projectOwners(project_id, user_id) VALUES(?,?)", [project_id, user_id])
+        cursor.execute(
+            "INSERT INTO projectOwners(project_id, user_id) VALUES(?,?)",
+            [project_id, user_id])
 
     def project_all_times(self, project_id):
         time = self._connection.execute(
