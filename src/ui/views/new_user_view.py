@@ -1,4 +1,5 @@
 from tkinter import ttk
+import ui.views.login_view as login_view
 
 class NewUser():
     def __init__(self, root, mover, main_service) -> None:
@@ -32,9 +33,7 @@ class NewUser():
         username = self._entry.get()
         if username != "":
             self._main_service.create_user(username)
-            from ui.views.loginView import LoginView
-            self._mover(LoginView(self._root, self._mover, self._main_service))
+            self._mover(login_view.LoginView(self._root, self._mover, self._main_service))
     
     def _cancel(self):
-        from ui.views.loginView import LoginView
-        self._mover(LoginView(self._root, self._mover, self._main_service))
+        self._mover(login_view.LoginView(self._root, self._mover, self._main_service))

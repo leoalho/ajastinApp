@@ -30,9 +30,16 @@ class ProjectRepository:
             WHERE project_id=?""",[project_id]).fetchall()
         return time
 
-    def new_time(self, project_id, user_id, time):
+    def new_time(self, project_id, user_id, time, start_time, end_time):
         self._connection.execute(
-            """INSERT INTO logs (project_id, user_id, time)
-            VALUES (?,?,?)""",[project_id, user_id, time])
+            """INSERT INTO logs (project_id, user_id, time, startTime, endTime)
+            VALUES (?,?,?,?,?)""",[project_id, user_id, time, start_time, end_time])
+
+    def time_per_day(self, project_id):
+        times = self._connection.execute(
+            """SELECT DATE(startTime) as date,SUM(time)
+            FROM logs WHERE project_id=? GROUP BY date;""",[project_id]).fetchall()
+        return times
+
 
 project_repository = ProjectRepository(get_database_connection())

@@ -10,4 +10,5 @@
 | 24.11 | 3   | Luotu tietokantaan projects-taulu, lisätty projektitieto päänäkymään |
 | 25.11 | 5   | Luotu tietokantaan logs-taulu, lisätty projektinäkymä |
 | 26.11 | 3   | Sisäänirjautuminen, projektien lisääminen, uloskirjautuminen, projektien vaihtaminen |
-| yht   | 29  | | 
+| 27.11 | 4   | Sovelluslogiikan refaktorointia, export toiminnallisuus |
+| yht   | 33  | | 

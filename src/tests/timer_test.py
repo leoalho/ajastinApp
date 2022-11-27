@@ -16,12 +16,12 @@ class TestTimer(unittest.TestCase):
     
     def test_toggle_timer_changes_timer_on_value(self):
         self.timer.toggle_timer()
-        self.assertEqual(self.timer.get_timer(), True)
+        self.assertEqual(self.timer.timer_on, True)
 
     def test_toggle_timer_twice_does_not_change_timer_on_value(self):
         self.timer.toggle_timer()
         self.timer.toggle_timer()
-        self.assertEqual(self.timer.get_timer(), False)
+        self.assertEqual(self.timer.timer_on, False)
 
     def test_session_time_gets_updated_when_resetting(self):
         self.timer.tick()

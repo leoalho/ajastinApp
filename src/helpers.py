@@ -8,7 +8,7 @@ def time_to_string(time):
         remaining -= hours*3600
         result += f"{hours} h "
         if remaining<60:
-            result += f"0 m "
+            result += "0 m "
     if remaining>60:
         minutes = remaining//60
         remaining -= minutes*60

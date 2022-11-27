@@ -4,6 +4,7 @@ Sovelluksen tarkoituksena on seurata töiden ja muiden projektien ajankäyttöä
 - [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 - [Changelog](./dokumentaatio/changelog.md)
+- [arkkitehtuuri](./dokumentaatio/arkkitehtuuri.md)
 
 ## Komentorivitoiminnot
 

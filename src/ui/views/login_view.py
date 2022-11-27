@@ -1,4 +1,6 @@
 from tkinter import ttk
+import ui.views.project_view as project_view
+import ui.views.new_user_view as new_user_view
 
 class LoginView():
     def __init__(self, root, mover, main_service) -> None:
@@ -9,7 +11,6 @@ class LoginView():
         self._usernameInput = ""
         self._initialize()
         
-
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         general_info = ttk.Label(master=self._frame, text="Login")
@@ -27,14 +28,12 @@ class LoginView():
 
     def _login(self):
         if self._main_service.login(self._entry.get()):
-            from ui.views.projectView import ProjectView
-            self._mover(ProjectView(self._root, self._mover, self._main_service))
+            self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))
         else:
             return
 
     def _create_user(self):
-        from ui.views.new_user_view import NewUser
-        self._mover(NewUser(self._root, self._mover, self._main_service))
+        self._mover(new_user_view.NewUser(self._root, self._mover, self._main_service))
 
     def pack(self):
         self._frame.pack()

@@ -1,4 +1,5 @@
 from tkinter import ttk
+import ui.views.project_view as project_view
 
 class NewProject():
     def __init__(self, root, mover, main_service) -> None:
@@ -30,9 +31,7 @@ class NewProject():
         project_name = self._entry.get()
         if project_name != "":
             self._main_service.create_project(project_name)
-            from ui.views.projectView import ProjectView
-            self._mover(ProjectView(self._root, self._mover, self._main_service))
+            self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))
     
     def _cancel(self):
-        from ui.views.projectView import ProjectView
-        self._mover(ProjectView(self._root, self._mover, self._main_service))
+        self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))

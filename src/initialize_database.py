@@ -8,7 +8,8 @@ def initialize():
 
 def initialize_users(database):
     database.execute("DROP TABLE IF EXISTS users;")
-    database.execute("CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT UNIQUE);")
+    database.execute(
+        "CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT);")
     database.execute("INSERT INTO users(username) VALUES('Test')")
 
 def initialize_projects(database):
@@ -27,4 +28,6 @@ def initialize_logs(database):
         id INTEGER PRIMARY KEY,
         project_id REFERENCES projects,
         user_id references users,
-        time INTEGER )""")
+        time INTEGER,
+        startTime timestamp,
+        endTime timestamp )""")

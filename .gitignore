@@ -4,3 +4,5 @@ __pycache__
 htmlcov
 data/database.db
 data/test_database.db
+exports/*
+!exports/.gitkeep 

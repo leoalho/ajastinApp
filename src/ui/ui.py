@@ -1,4 +1,4 @@
-from ui.views.loginView import LoginView
+from ui.views.login_view import LoginView
 from services.main_service  import MainService
 
 def initRoot(root): 
