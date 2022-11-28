@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 from repositories.project_repository import project_repository
 from repositories.user_repository import user_repository
@@ -103,8 +104,10 @@ class MainService():
         textbody += "------------------\n"
         textbody += f"Time in total: {self.get_project_time()}"
         date = now.strftime('%Y%m%d')
-        filename =f"{EXPORT_DIRECTORY}\\{date}{self._user.current_project.name}.txt"
-        with open(filename, "w", encoding="utf8") as file:
+        
+        filename =f"{date}{self._user.current_project.name}.txt"
+        filepath = os.path.join(EXPORT_DIRECTORY,filename)
+        with open(filepath, "w", encoding="utf8") as file:
             file.write(textbody)
 
     def create_user(self, username):
