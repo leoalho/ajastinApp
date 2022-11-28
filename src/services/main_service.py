@@ -4,6 +4,7 @@ from repositories.user_repository import user_repository
 from entities.timer import Timer
 from entities.user import User
 from entities.project import Project
+from config import EXPORT_DIRECTORY
 import helpers
 
 
@@ -102,7 +103,8 @@ class MainService():
         textbody += "------------------\n"
         textbody += f"Time in total: {self.get_project_time()}"
 
-        filename =f"..\\exports\\{now.strftime('%Y%m%d')}{self._user.current_project.name}.txt"
+        filename =f"""{EXPORT_DIRECTORY}
+        \\{now.strftime('%Y%m%d')}{self._user.current_project.name}.txt"""
         with open(filename, "w", encoding="utf8") as file:
             file.write(textbody)
 
