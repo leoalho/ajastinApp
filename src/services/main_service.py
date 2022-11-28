@@ -102,9 +102,8 @@ class MainService():
             textbody += f"{time[0]}: {helpers.time_to_string(time[1])} \n"
         textbody += "------------------\n"
         textbody += f"Time in total: {self.get_project_time()}"
-
-        filename =f"""{EXPORT_DIRECTORY}
-        \\{now.strftime('%Y%m%d')}{self._user.current_project.name}.txt"""
+        date = now.strftime('%Y%m%d')
+        filename =f"{EXPORT_DIRECTORY}\\{date}{self._user.current_project.name}.txt"
         with open(filename, "w", encoding="utf8") as file:
             file.write(textbody)
 
