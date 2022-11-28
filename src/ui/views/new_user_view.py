@@ -1,13 +1,10 @@
 from tkinter import ttk
 import ui.views.login_view as login_view
+from ui.views.view_model import View
 
-class NewUser():
+class NewUser(View):
     def __init__(self, root, mover, main_service) -> None:
-     
-        self._root = root
-        self._main_service = main_service
-        self._mover = mover
-        self._frame = None
+        super().__init__(root, mover, main_service)
         self._initialize()
 
     def _initialize(self):
@@ -22,12 +19,6 @@ class NewUser():
         self._entry.grid(row=1,column=0, columnspan=2)
         create_user_button.grid(row=2, column=0)
         cancel_button.grid(row=2, column=1)
-    
-    def pack(self):
-        self._frame.pack()
-
-    def destroy(self):
-        self._frame.destroy()
 
     def _create_user(self):
         username = self._entry.get()

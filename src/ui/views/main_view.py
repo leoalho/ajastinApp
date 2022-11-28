@@ -2,14 +2,11 @@ from tkinter import ttk, StringVar
 import time
 import ui.views.login_view as login_view
 import ui.views.project_view as project_view
+from ui.views.view_model import View
 
-class MainView():
+class MainView(View):
     def __init__(self, root, mover, main_service) -> None:
-     
-        self._root = root
-        self._main_service = main_service
-        self._mover = mover
-        self._frame = None
+        super().__init__(root, mover, main_service)
 
         self._buttonText = StringVar()
         self._buttonText.set("Start")
@@ -62,20 +59,14 @@ class MainView():
         self._mover(login_view.LoginView(self._root, self._mover, self._main_service))
 
     def _change_project(self):
-        self._main_service.set_project(None)
+        self._main_service.set_current_project(None)
         self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))
     
     def _export(self):
         self._main_service.export()
-
-    def pack(self):
-        self._frame.pack()
 
     def timer(self):
         while self._main_service.get_timer():
             self._timeString.set(self._main_service.tick())
             self._frame.update()
             time.sleep(1)
-
-    def destroy(self):
-        self._frame.destroy()

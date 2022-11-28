@@ -1,13 +1,11 @@
 import tkinter as tk
 from tkinter import ttk
 from ui.views.main_view import MainView
+from ui.views.view_model import View
 
-class ProjectView():
+class ProjectView(View):
     def __init__(self, root, mover, main_service) -> None:
-        self._root = root
-        self._frame = None
-        self._main_service = main_service
-        self._mover = mover
+        super().__init__(root, mover, main_service)
         self._initialize()
         
     def _initialize(self):
@@ -44,9 +42,3 @@ class ProjectView():
         self._main_service.logout()
         from ui.views.login_view import LoginView
         self._mover(LoginView(self._root, self._mover, self._main_service))
-
-    def pack(self):
-        self._frame.pack()
-    
-    def destroy(self):
-        self._frame.destroy()

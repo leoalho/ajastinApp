@@ -102,3 +102,4 @@ class MainService():
 
     def create_project(self, project_name):
         project_repository.create_project(self._user.id, project_name)
+        self.set_projects()
