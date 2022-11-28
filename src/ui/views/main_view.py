@@ -59,7 +59,7 @@ class MainView(View):
         self._mover(login_view.LoginView(self._root, self._mover, self._main_service))
 
     def _change_project(self):
-        self._main_service.set_current_project(None)
+        self._main_service.close_project()
         self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))
     
     def _export(self):

@@ -11,4 +11,5 @@
 | 25.11 | 5   | Luotu tietokantaan logs-taulu, lisätty projektinäkymä |
 | 26.11 | 3   | Sisäänirjautuminen, projektien lisääminen, uloskirjautuminen, projektien vaihtaminen |
 | 27.11 | 4   | Sovelluslogiikan refaktorointia, export toiminnallisuus |
+| 28.11 | 3   | Timerin bugin korjaus, dokumentaation kirjoittamista |
 | yht   | 33  | | 

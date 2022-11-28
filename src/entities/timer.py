@@ -14,6 +14,7 @@ class Timer:
         return helpers.time_to_string(self.current_time)
 
     def reset(self):
+        self.timer_on = False
         new_time = self.current_time
         self.session_time += self.current_time
         self.current_time = 0

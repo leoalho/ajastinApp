@@ -6,11 +6,15 @@ Sovelluksen tarkoituksena on seurata töiden ja muiden projektien ajankäyttöä
 - [Changelog](./dokumentaatio/changelog.md)
 - [arkkitehtuuri](./dokumentaatio/arkkitehtuuri.md)
 
+## Asennus
+
+1. Riippuvuuksien asentaminen: **poetry install**
+
+2. Tietokannan alustaminen: **poetry run invoke build**
+
+3. Ohjelman käynnistäminen: **poetry run invoke start** 
+
 ## Komentorivitoiminnot
-
-Riippuvuuksien asentaminen: **poetry install**
-
-Tietokannan alustaminen: **poetry run invoke build**
 
 Ohjelman käynnistäminen: **poetry run invoke start** 
 

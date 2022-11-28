@@ -1,3 +1,9 @@
+# Arkkitehtuurikuvaus
+
+## Rakenne
+
+Luokkakaavio:
+
 ```mermaid
 classDiagram
     main_service "1" -- "1" timer
@@ -7,3 +13,7 @@ classDiagram
     main_service -- project-repository
     main_service -- user_repository
 ```
+
+Pakkausrakenne:
+
+![Pakkausrakenne](./kuvat/packing_diagram.png)

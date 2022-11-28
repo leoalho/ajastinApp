@@ -22,10 +22,11 @@ class MainService():
         return False
 
     def logout(self):
-            self._user = None
+        self.close_project()
+        self._user = None
 
     def set_projects(self):
-        projects = project_repository.user_projects(self._user.id)
+        projects = project_repository.user_projects(self._user.db_id)
         self._user.projects = []
         for project in projects:
             self._user.projects.append(Project(project[0], project[1]))
@@ -52,11 +53,17 @@ class MainService():
     def tick(self):
         return self._timer.tick()
 
+    def close_project(self):
+        self._timer.reset()
+        self._timer.session_time = 0
+        self._user.current_project = None
+
     def reset(self):
         startstop = self._timer.get_start_stop()
         new_time = self._timer.reset()
         project_repository.new_time(
-            self._user.current_project.id, self._user.id, new_time, startstop[0], startstop[1])
+            self._user.current_project.db_id,
+            self._user.db_id, new_time, startstop[0], startstop[1])
 
     def toggle_timer(self):
         self._timer.toggle_timer()
@@ -73,11 +80,11 @@ class MainService():
         return self._timer.session_time
 
     def get_project_time(self):
-        project_time = project_repository.project_sum_time(self._user.current_project.id)
+        project_time = project_repository.project_sum_time(self._user.current_project.db_id)
         return helpers.time_to_string(project_time[0])
 
     def get_time_per_day(self):
-        times = project_repository.time_per_day(self._user.current_project.id)
+        times = project_repository.time_per_day(self._user.current_project.db_id)
         result = "TIme spent on project during last days:\n"
         for time in times:
             result += f"{time[0]}: {helpers.time_to_string(time[1])} \n"
@@ -86,20 +93,22 @@ class MainService():
     def export(self):
         now = datetime.now()
 
-        filename =f"..\\exports\\{now.strftime('%Y%m%d')}{self._user.current_project.name}.txt"
-        file = open(filename, "w")
-        times = project_repository.time_per_day(self._user.current_project.id)
+        times = project_repository.time_per_day(self._user.current_project.db_id)
 
-        textbody = f"Daily log of {self._user.username} on project {self._user.current_project.name}:\n"
+        textbody = f"""Daily log of
+         {self._user.username} on project {self._user.current_project.name}:\n"""
         for time in times:
             textbody += f"{time[0]}: {helpers.time_to_string(time[1])} \n"
         textbody += "------------------\n"
         textbody += f"Time in total: {self.get_project_time()}"
-        file.write(textbody)
+
+        filename =f"..\\exports\\{now.strftime('%Y%m%d')}{self._user.current_project.name}.txt"
+        with open(filename, "w", encoding="utf8") as file:
+            file.write(textbody)
 
     def create_user(self, username):
         user_repository.create_user(username)
 
     def create_project(self, project_name):
-        project_repository.create_project(self._user.id, project_name)
+        project_repository.create_project(self._user.db_id, project_name)
         self.set_projects()
