@@ -9,11 +9,11 @@ classDiagram
     main_service "1" -- "1" timer
     main_service "1" -- "1" user
     user "1" -- "*" project
-    main_service -.-> project
-    main_service -- project-repository
+    main_service ..> project
+    main_service -- project_repository
     main_service -- user_repository
 ```
 
 Pakkausrakenne:
 
-![Pakkausrakenne](./kuvat/packing_diagram.png)
+![pakkauskaavio](./kuvat/packing_diagram.png)
