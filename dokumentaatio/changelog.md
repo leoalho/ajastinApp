@@ -22,3 +22,9 @@
 - Aloitettu lintaus Pylintilla
 - Laajennettu testejä
 
+## Viikko 5
+- Lisätty salasana kirjautumisnäkymään
+- Salasanan vaatiminen käyttäjän luonnin yhteydessä
+- Salasanan hashaus bcrypt kirjaston avulla
+- Lisätty messageBoxit virheellisille inputeille käyttäjän ja projektin luonnin sekä sisäänkirjautumisen yhteydessä
+- Laajennettu testikattavuutta

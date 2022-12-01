@@ -1,6 +1,7 @@
-from tkinter import ttk
+from tkinter import ttk, messagebox
 import ui.views.project_view as project_view
 from ui.views.view_model import View
+from sqlite3 import IntegrityError
 
 class NewProject(View):
     def __init__(self, root, mover, main_service) -> None:
@@ -22,8 +23,11 @@ class NewProject(View):
     def _create_project(self):
         project_name = self._entry.get()
         if project_name != "":
-            self._main_service.create_project(project_name)
-            self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))
+            try:
+                self._main_service.create_project(project_name)
+                self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))
+            except IntegrityError:
+                messagebox.showerror('Error', 'Projectname already taken')
     
     def _cancel(self):
         self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))

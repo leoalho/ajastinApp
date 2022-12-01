@@ -10,7 +10,8 @@ def initialize_users(database):
     database.execute("DROP TABLE IF EXISTS users;")
     database.execute(
         "CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT);")
-    database.execute("INSERT INTO users(username) VALUES('Test')")
+    database.execute("""INSERT INTO users(username, password)
+         VALUES('Test', '$2b$12$DJ0dBrcRB.Vd3YPVh6CdX.8qaa9hbYckb4q1NAh9FSOwgW7Kx/BEm')""")
 
 def initialize_projects(database):
     database.execute("DROP TABLE IF EXISTS projects")

@@ -17,10 +17,10 @@ Sovelluksessa on toistaiseksi vain yksi käyttäjäryhmä: normaali käyttäjä
 ### Kirjautumisnäkymä
 
 - [x] Käyttäjä voi luoda käyttäjätunnuksen
-- [] virheellisen tiedon käyttäjää luodessa aiheuttaa virheilmoituksen
-- [] Kirjautuminen vaatii salasanan
-- [] salasana on kryptattu
-- [] väärä käyttäjänimi/salasana antaa virheilmoituksen
+- [x] virheellinen tieto käyttäjää luodessa aiheuttaa virheilmoituksen
+- [x] Kirjautuminen vaatii salasanan
+- [x] salasana on kryptattu
+- [x] väärä käyttäjänimi/salasana antaa virheilmoituksen
 
 ### Projektinäkymä
 - [x] Käyttäjä voi valita jo olemassa olevan projektin tai luoda uusi projekti, jonka ajankäyttöä seurataan
