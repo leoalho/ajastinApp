@@ -14,6 +14,7 @@
 - Siirretty ajastimen toiminnallisuus MainView-luokasta omaan Timer-luokkaan
 - Laajennettu ajastimen toiminnallisuutta: sekuntien sijaan näkyvät sekunnit, minuutit ja tunnit
 - Lisätty projektinäkymä, joka mahdollistaa jo luoduista projekteista projektin valinnan
+- Laaditu omat näkymät ja toiminnallisuus uusien projektien ja käyttäjien luomiseksi
 - Lisätty näkymät ja toiminnallisuus käyttäjien ja projektien lisäämiseksi
 - Lisätty mahdollisuus uloskirjautumiseen sekä projektien vaihtamiseen
 - Mahdollista exportaa projektin ajanotot/vuorokausi. Exportit tulevat juurihakemistossa olevaan exports hakemistoon
