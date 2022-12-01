@@ -33,7 +33,7 @@ Sovelluksessa on toistaiseksi vain yksi käyttäjäryhmä: normaali käyttäjä
 - [x] Päänäkymässä näkyvät kyseisen projektin kaikki ajanottokerrat ja näiden summa sekä on mahdollista exportaa kyseinen näkymä .txt muodossa.
 
 ## Jatkokehitysideoita
-- Päänäkymän toiminnallisuuden siirtäminen painikkeista ylälaidassa olevaan manubarin
+- Päänäkymän toiminnallisuuden siirtäminen painikkeista ylälaidassa olevaan menubarin
 - Ajastimen pysäyttämisen yhteydessä käyttäjän on mahdollita kirjoittaa kommentti viimeiseen ajanottoon liittyen
 - Tulosteiden laatiminen .pdf-muodossa
 - Mahdollista nähdä ajankäytön keskiarvot/mediaanit
