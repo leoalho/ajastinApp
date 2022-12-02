@@ -12,5 +12,6 @@
 | 26.11 | 3   | Sisäänirjautuminen, projektien lisääminen, uloskirjautuminen, projektien vaihtaminen |
 | 27.11 | 4   | Sovelluslogiikan refaktorointia, export toiminnallisuus |
 | 28.11 | 3   | Timerin bugin korjaus, dokumentaation kirjoittamista |
-| 1.12  | 3   | Salasanojen käyttöönotto, bcrypt, messageBoxit virheilmoituksia varten |
-| yht   | 39  | | 
+| 1.12  | 3   | Salasanojen käyttöönotto, bcrypt, messageBoxit  virheilmoituksia varten |
+| 2.12  | 3   | Lisätty testikattavuutta |
+| yht   | 42  | | 

@@ -27,7 +27,7 @@ class MainView(View):
         logout_button = ttk.Button(master=self._frame, text="Logout", command=self._logout)
         project_info = ttk.Label(master=self._frame, text=f"Working on project {self._main_service.get_current_project().name}")
         project_button = ttk.Button(master=self._frame, text="change project", command=self._change_project)
-        time_label = ttk.Label(master=self._frame,textvariable=self._timeString)
+        time_label = ttk.Label(master=self._frame,textvariable=self._timeString, font=("Arial", 25))
         timer_button = ttk.Button(master=self._frame, textvariable=self._buttonText, command=self._toggle_timer)
         sum_label = ttk.Label(master=self._frame, textvariable=self._sumString)
         project_label = ttk.Label(master=self._frame, textvariable=self._projectString)

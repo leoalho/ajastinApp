@@ -14,6 +14,7 @@ class TestUserRepository(unittest.TestCase):
         self.assertEqual(len(users), 1)
     
     def test_creating_user_adds_a_new_user(self):
-        self.user_repository.create_user("Tester")
+        self.user_repository.create_user("Tester", "secret")
         users = self.user_repository.all_users()
-        self.addClassCleanup(len(users), 2)
+        self.assertEqual(len(users), 2)
+        

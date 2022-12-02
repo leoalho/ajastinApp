@@ -51,7 +51,9 @@ class MainService():
                 self._user.current_project = project
 
     def get_username(self):
-        return self._user.username
+        if self._user:
+            return self._user.username
+        return None
 
     def tick(self):
         return self._timer.tick()

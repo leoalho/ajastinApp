@@ -12,7 +12,7 @@ Sovelluksen tarkoituksena on seurata töiden ja muiden projektien ajankäyttöä
 
 2. Tietokannan alustaminen: **poetry run invoke build**
 
-3. Ohjelman käynnistäminen: **poetry run invoke start** 
+3. Ohjelman käynnistäminen: **poetry run invoke start**. Ohjelmaan voi kirjautua testitunnuksilla: username "Test", password "secret"
 
 ## Komentorivitoiminnot
 
