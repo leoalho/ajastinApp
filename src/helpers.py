@@ -1,3 +1,5 @@
+import bcrypt
+
 def time_to_string(time):
     if not time:
         return "0 s"
@@ -15,3 +17,14 @@ def time_to_string(time):
         result += f"{minutes} m "
     result += f"{remaining} s"
     return result
+
+def hash_password(password):
+    encoded_password = password.encode('utf-8')
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(encoded_password, salt)
+    decoded_hash = hashed_password.decode('utf-8')
+    return decoded_hash
+
+def validate_password(password, user):
+    encoded_password = password.encode('utf8')
+    return bcrypt.checkpw(encoded_password, user[2].encode('utf8'))

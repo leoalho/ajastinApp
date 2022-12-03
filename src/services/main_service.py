@@ -1,6 +1,5 @@
 import os
 from datetime import datetime
-import bcrypt
 from repositories.project_repository import project_repository
 from repositories.user_repository import user_repository
 from entities.timer import Timer
@@ -16,12 +15,10 @@ class MainService():
 
     def login(self, username, password):
         user = user_repository.get_user(username)
-        if user:
-            encoded_password = password.encode('utf8')
-            if bcrypt.checkpw(encoded_password, user[2].encode('utf8')):
-                self._user = User(user[0], user[1])
-                self.set_projects()
-                return True
+        if user and helpers.validate_password(password, user):
+            self._user = User(user[0], user[1])
+            self.set_projects()
+            return True
         return False
 
     def logout(self):
@@ -114,12 +111,9 @@ class MainService():
             file.write(textbody)
 
     def create_user(self, username, password):
-        encoded_password = password.encode('utf-8')
-        salt = bcrypt.gensalt()
-        hashed_password = bcrypt.hashpw(encoded_password, salt)
-        decoded_hash = hashed_password.decode('utf-8')
+        hashed_password = helpers.hash_password(password)
 
-        user_repository.create_user(username, decoded_hash)
+        user_repository.create_user(username, hashed_password)
 
     def create_project(self, project_name):
         project_repository.create_project(self._user.db_id, project_name)
