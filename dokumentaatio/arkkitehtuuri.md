@@ -2,7 +2,19 @@
 
 ## Rakenne
 
-Luokkakaavio:
+Ohjelma noudattaa kolmitasoista kerrosarkkitehtuuria. Alla Koodin pakkausrakenne, jossa lisäksi jokaisessa pakkauksessa olevat luokat.
+
+![pakkauskaavio](./kuvat/packing_diagram.png)
+
+Pakkauskaavion selitteet:
+ui: sovelluksen käyttöliittymä
+Services: sovelluksen toiminnallisuus
+Repositories: Sovelluksen tietokannan anssa kommunikoivat luokat
+Entities: Sovelluksen tietomallit
+
+## Sovelluslogiikka
+
+Alla oleva sovelluksen luokkakaavio kuvaa sovelluksen luokkien välistä suhdetta.
 
 ```mermaid
 classDiagram
@@ -13,9 +25,11 @@ classDiagram
     main_service -- project_repository
     main_service -- user_repository
 ```
-Pakkausrakenne:
+Sovelluksen entityt ovat Timer, User sekä Project. Projektin toiminnallisuudesta vastaa olio main_service, joka pääsee käsiksi repositorioihin.
 
-![pakkauskaavio](./kuvat/packing_diagram.png)
+## Tietojen tallennus
+
+Sovelluken tiedot tallennetaan paikalliseen SQLite-tietokantaan. Sovelluksen pakkauksen repositorioiden luokat UserRepository sekä ProjectRepository toimivat ns. "data access objecteina". UserRepository vastaa käyttäjien tietojen tallettamista, ProjectRepository taas 
 
 ## Päätoiminnallisuudet
 

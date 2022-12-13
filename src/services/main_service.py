@@ -46,6 +46,7 @@ class MainService():
         """Hakee tietokannasta sisäänkirjautuneen käyttäjän projektit
         ja asettaa nämä User-olion projekteiksi
         """
+
         projects = project_repository.user_projects(self._user.db_id)
         self._user.projects = []
         for project in projects:

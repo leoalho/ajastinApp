@@ -19,4 +19,3 @@ Kirjautumisnäkymässä on mahdollista luoda uusi käyttäjä painamalla "create
 
 ## Projektin valinta
 Kirjauduttua on käyttäjän valittava projekti. Tämä onnistuu valitsemalla projekti listasta, jossa on lueteltu kaikki projektit, joihin kyseisellä käyttäjällä on lupa osallistua. Projektin valinta vahvistetaan painamalla 
-
