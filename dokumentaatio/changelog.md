@@ -29,3 +29,10 @@
 - Salasanan hashaus bcrypt kirjaston avulla
 - Lisätty messageBoxit virheellisille inputeille käyttäjän ja projektin luonnin sekä sisäänkirjautumisen yhteydessä
 - Laajennettu testikattavuutta
+
+## Viikko 6
+- Lisätty mahdollisuus exporttaa .txt:n lisäksi .pdf muodossa "PyFPDF
+"-kirjaston avulla
+- Luotu mainView:n menubar
+- Siirretty suurin osa mainView:n painikkeista menubariin
+- Tehty uusi näkymä ja toiminnallisuus projektin nimen vaihtamiseen

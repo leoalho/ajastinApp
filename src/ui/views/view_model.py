@@ -2,6 +2,7 @@ from tkinter import ttk
 class View:
     def __init__(self, root, mover, main_service) -> None:
         self._root = root
+        self._root.config(menu="")
         self._frame = None
         self._mover = mover
         self._main_service = main_service

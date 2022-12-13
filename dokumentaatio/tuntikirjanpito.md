@@ -14,5 +14,6 @@
 | 28.11 | 3   | Timerin bugin korjaus, dokumentaation kirjoittamista |
 | 1.12  | 3   | Salasanojen käyttöönotto, bcrypt, messageBoxit  virheilmoituksia varten |
 | 2.12  | 3   | Lisätty testikattavuutta |
-| 3.12  | 1   | Lisätty dokumntaatioon sekvenssikaavio, luotu release | 
+| 3.12  | 1   | Lisätty dokumentaatioon sekvenssikaavio, luotu release | 
+| 12.12 | 4   | Luotu menubar päänäkymään sekä pdf exporttaus |
 | yht   | 43  | | 

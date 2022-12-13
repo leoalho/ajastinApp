@@ -1,4 +1,4 @@
-import helpers
+import utils.helpers as helpers
 import unittest
 
 class HelperTest(unittest.TestCase):

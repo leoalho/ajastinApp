@@ -1,4 +1,4 @@
-from tkinter import ttk, StringVar
+from tkinter import ttk, StringVar, Menu, messagebox
 import time
 import ui.views.login_view as login_view
 import ui.views.project_view as project_view
@@ -23,27 +23,41 @@ class MainView(View):
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
-        userInfo = ttk.Label(master=self._frame, text=f"Logged in as {self._main_service.get_username()}")
-        logout_button = ttk.Button(master=self._frame, text="Logout", command=self._logout)
-        project_info = ttk.Label(master=self._frame, text=f"Working on project {self._main_service.get_current_project().name}")
-        project_button = ttk.Button(master=self._frame, text="change project", command=self._change_project)
+        self._menubar()
+        info_label = ttk.Label(master=self._frame,
+            text=f"Logged in as {self._main_service.get_username()}, Working on project {self._main_service.get_current_project().name}")
         time_label = ttk.Label(master=self._frame,textvariable=self._timeString, font=("Arial", 25))
         timer_button = ttk.Button(master=self._frame, textvariable=self._buttonText, command=self._toggle_timer)
         sum_label = ttk.Label(master=self._frame, textvariable=self._sumString)
         project_label = ttk.Label(master=self._frame, textvariable=self._projectString)
         times_per_day_label = ttk.Label(master=self._frame, textvariable=self._last_days)
-        export_button = ttk.Button(master=self._frame, text="Export as .txt", command=self._export)
         
-        userInfo.grid(row=0, column=0)
-        logout_button.grid(row=0, column=1)
-        project_info.grid(row=1, column=0)
-        project_button.grid(row=1, column=1)
-        time_label.grid(row=2, column=0)
-        timer_button.grid(row=2, column=1)
-        sum_label.grid(row=3, column=0, columnspan=2)
-        project_label.grid(row=4, column=0, columnspan=2)
-        times_per_day_label.grid(row=5, column=0, columnspan=2)
-        export_button.grid(row=6, column=0)
+        info_label.grid(row=0, column=0)
+        time_label.grid(row=1, column=0)
+        timer_button.grid(row=2, column=0)
+        sum_label.grid(row=3, column=0)
+        project_label.grid(row=4, column=0)
+        times_per_day_label.grid(row=5, column=0)
+
+    def _menubar(self):
+        menubar = Menu(self._root)
+        user_menu = Menu(menubar, tearoff=0)
+        project_menu = Menu(menubar, tearoff=0)
+        export_menu = Menu(project_menu, tearoff=0)
+
+        user_menu.add_command(label="Logout", command=self._logout)
+        user_menu.add_separator()
+        user_menu.add_command(label="Exit", command=self._root.destroy)
+
+        export_menu.add_command(label='.txt', command=self._export_txt)
+        export_menu.add_command(label='.pdf', command=self._export_pdf)
+        
+        project_menu.add_cascade(label="Export as...", menu=export_menu)
+        project_menu.add_command(label="Close", command=self._change_project)
+
+        menubar.add_cascade(label="User", menu=user_menu)
+        menubar.add_cascade(label="Project", menu=project_menu)
+        self._root.config(menu=menubar)
 
     def _toggle_timer(self):
         self._main_service.toggle_timer()
@@ -62,8 +76,13 @@ class MainView(View):
         self._main_service.close_project()
         self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))
     
-    def _export(self):
-        self._main_service.export()
+    def _export_txt(self):
+        filename = self._main_service.export("txt")
+        messagebox.showinfo("File created", f"Created file {filename}")
+
+    def _export_pdf(self):
+        filename = self._main_service.export("pdf")
+        messagebox.showinfo("File created", f"Created file {filename}")
 
     def timer(self):
         while self._main_service.get_timer():

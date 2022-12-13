@@ -1,12 +1,10 @@
-import os
-from datetime import datetime
 from repositories.project_repository import project_repository
 from repositories.user_repository import user_repository
 from entities.timer import Timer
 from entities.user import User
 from entities.project import Project
-from config import EXPORT_DIRECTORY
-import helpers
+from utils import helpers
+from utils import export
 
 class MainService():
     def __init__(self) -> None:
@@ -79,7 +77,7 @@ class MainService():
         return self._timer.current_time
 
     def get_session_time(self):
-        return self._timer.session_time
+        return helpers.time_to_string(self._timer.session_time)
 
     def get_project_time(self):
         project_time = project_repository.project_sum_time(self._user.current_project.db_id)
@@ -92,23 +90,15 @@ class MainService():
             result += f"{time[0]}: {helpers.time_to_string(time[1])} \n"
         return result
 
-    def export(self):
-        now = datetime.now()
+    def export(self, filetype):
+        filename = export.export(
+            filetype,
+            self._user.username,
+            self._user.current_project.name,
+            project_repository.time_per_day(self._user.current_project.db_id),
+            self.get_project_time())
 
-        times = project_repository.time_per_day(self._user.current_project.db_id)
-
-        textbody = f"""Daily log of
-         {self._user.username} on project {self._user.current_project.name}:\n"""
-        for time in times:
-            textbody += f"{time[0]}: {helpers.time_to_string(time[1])} \n"
-        textbody += "------------------\n"
-        textbody += f"Time in total: {self.get_project_time()}"
-        date = now.strftime('%Y%m%d')
-
-        filename =f"{date}{self._user.current_project.name}.txt"
-        filepath = os.path.join(EXPORT_DIRECTORY,filename)
-        with open(filepath, "w", encoding="utf8") as file:
-            file.write(textbody)
+        return filename
 
     def create_user(self, username, password):
         hashed_password = helpers.hash_password(password)

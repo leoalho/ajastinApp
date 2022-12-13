@@ -11,7 +11,7 @@ class TestMainService(unittest.TestCase):
 
     def test_current_time_and_session_time_zero_at_intialization(self):
         self.assertEqual(self.main_service.get_current_time(), 0)
-        self.assertEqual(self.main_service.get_session_time(), 0)
+        self.assertEqual(self.main_service.get_session_time(), '0 s')
 
     def test_logging_in_creates_an_user(self):
         self.main_service.login("Test", "secret")
