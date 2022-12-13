@@ -19,3 +19,10 @@ Kirjautumisnäkymässä on mahdollista luoda uusi käyttäjä painamalla "create
 
 ## Projektin valinta
 Kirjauduttua on käyttäjän valittava projekti. Tämä onnistuu valitsemalla projekti listasta, jossa on lueteltu kaikki projektit, joihin kyseisellä käyttäjällä on lupa osallistua. Projektin valinta vahvistetaan painamalla 
+
+## Projektin luominen
+Projektin valinnan näkymässä on mahdollista luoda uusi projekti syöttämällä uuden projektin nimi sitä vastaavaan kenttään ja painamalla "Create project", tämän jälkeen sovellus siirtyy takaisin projektinäkymään ja uusi projekti näkyy listassa.
+
+## Päänäkymä
+Projektin valinnan jälkeen sovellus siirtyy päänäkymään. Päänäkymässä on mahdollista käynnistää/pysäyttää ajastin painamalla start/stop painiketta. Näkymä näyttää ajastimen päällä ollessa kuluneen ajan, koko kyseisen session ajan sekä viimeisimpien vuorokausien projektiin käytetty aika.
+Päänäkymän yläreunassa on menubar, jonka kautta on mahdollista kirjautua ulos, sulkea, sovellus, sulkea projekti sekä exportaa projektin päivittäiset ajat joko .txt tai .pdf muodossa.
