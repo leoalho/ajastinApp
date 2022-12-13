@@ -4,11 +4,25 @@ from ui.views.view_model import View
 from sqlite3 import IntegrityError
 
 class NewProject(View):
+    """Luokka uuden projektin luomista varten
+
+    Args:
+        View: Luokka perii luokan view_model
+    """
     def __init__(self, root, mover, main_service) -> None:
+        """Luokan konstruktori
+
+        Args:
+            root: Näkymän juuri
+            mover: Metodi näkymän vaihtamista varten
+            main_service: Toiminnallisuutta varten
+        """
         super().__init__(root, mover, main_service)
         self._initialize()
 
     def _initialize(self):
+        """Näkymän initialisointi
+        """
         self._frame = ttk.Frame(master=self._root)
         general_info = ttk.Label(master=self._frame, text="Enter a project name")
         self._entry = ttk.Entry(master=self._frame)
@@ -21,6 +35,8 @@ class NewProject(View):
         cancel_button.grid(row=2, column=1)
 
     def _create_project(self):
+        """Uuden projektin luonnin tapahtumankäsittelijä
+        """
         project_name = self._entry.get()
         if project_name != "":
             try:
@@ -30,4 +46,6 @@ class NewProject(View):
                 messagebox.showerror('Error', 'Projectname already taken')
     
     def _cancel(self):
+        """Palauttaa näkymän takaisin project_view:n
+        """
         self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))

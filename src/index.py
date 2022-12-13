@@ -2,6 +2,8 @@ from tkinter import Tk
 from ui.ui import UI, initRoot
 
 def main():
+    """Ohjelmiston pääfunktio, initialisoi käyttöliittymän ja käynnistää sen
+    """
 
     root = Tk()
     initRoot(root)

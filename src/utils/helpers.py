@@ -1,6 +1,14 @@
 import bcrypt
 
 def time_to_string(time):
+    """Luo merkkijonoesityksen
+
+    Args:
+        time (int): aika
+
+    Returns:
+        Palauttaa merkkijonona ajan
+    """
     if not time:
         return "0 s"
     remaining = time
@@ -19,6 +27,15 @@ def time_to_string(time):
     return result
 
 def hash_password(password):
+    """Luo hashatun salasanan
+
+    Args:
+        password (string): Salasana, joka halutaan hashata
+
+    Returns:
+        Palauttaa hashatun salasanan merkkijonona
+    """
+
     encoded_password = password.encode('utf-8')
     salt = bcrypt.gensalt()
     hashed_password = bcrypt.hashpw(encoded_password, salt)
@@ -26,5 +43,14 @@ def hash_password(password):
     return decoded_hash
 
 def validate_password(password, user):
+    """Validoi salasanan
+
+    Args:
+        password: salasana
+        user: Käyttäjä
+
+    Returns:
+       Palauttaa True, jos salasanat täsmäävät, muutoin False
+    """
     encoded_password = password.encode('utf8')
     return bcrypt.checkpw(encoded_password, user[2].encode('utf8'))

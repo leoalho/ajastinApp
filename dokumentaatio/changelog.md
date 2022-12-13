@@ -31,8 +31,8 @@
 - Laajennettu testikattavuutta
 
 ## Viikko 6
-- Lisätty mahdollisuus exporttaa .txt:n lisäksi .pdf muodossa "PyFPDF
-"-kirjaston avulla
-- Luotu mainView:n menubar
-- Siirretty suurin osa mainView:n painikkeista menubariin
+- Lisätty mahdollisuus exporttaa .txt:n lisäksi .pdf muodossa "PyFPDF"-kirjaston avulla
+- Luotu menubar
+- Siirretty suurin osa mainView:n ja projectViewn:n painikkeista menubariin
 - Tehty uusi näkymä ja toiminnallisuus projektin nimen vaihtamiseen
+- Lisätty docstringit projektin luokille ja metodeille poislukien testit

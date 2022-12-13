@@ -5,7 +5,21 @@ import ui.views.project_view as project_view
 from ui.views.view_model import View
 
 class MainView(View):
+    """Luokka päänäkymää varten
+
+    Args:
+        View: Luokka perii luokan view_model
+    """
+
     def __init__(self, root, mover, main_service) -> None:
+        """Luokan konstruktori
+
+        Args:
+            root: Näkymän juuri
+            mover: Metodi näkymän vaihtamista varten
+            main_service: Toiminnallisuutta varten
+        """
+
         super().__init__(root, mover, main_service)
 
         self._buttonText = StringVar()
@@ -22,6 +36,9 @@ class MainView(View):
         self._initialize()
 
     def _initialize(self):
+        """Näkymän initialisointi
+        """
+
         self._frame = ttk.Frame(master=self._root)
         self._menubar()
         info_label = ttk.Label(master=self._frame,
@@ -40,6 +57,9 @@ class MainView(View):
         times_per_day_label.grid(row=5, column=0)
 
     def _menubar(self):
+        """menubarin initialisointi
+        """
+
         menubar = Menu(self._root)
         user_menu = Menu(menubar, tearoff=0)
         project_menu = Menu(menubar, tearoff=0)
@@ -60,6 +80,9 @@ class MainView(View):
         self._root.config(menu=menubar)
 
     def _toggle_timer(self):
+        """Start/stop-painikkeen tapahtumankäsittelijä
+        """
+
         self._main_service.toggle_timer()
         self._sumString.set(f"Total time this session: {self._main_service.get_session_time()}")
         self._timeString.set(self._main_service.get_current_time())
@@ -69,22 +92,31 @@ class MainView(View):
         self.timer()
 
     def _logout(self):
+        """Uloskirjautumisen tapahtumankäsittelijä, siirtää käyttäjän takaisin login_view-näkymään
+        """
+
         self._main_service.logout()    
         self._mover(login_view.LoginView(self._root, self._mover, self._main_service))
 
     def _change_project(self):
+        """Projektin vaihtamisen tapahtumankäsittelijä, siitää käyttäjän project_view-näkymään
+        """
         self._main_service.close_project()
         self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))
     
     def _export_txt(self):
+        """.txt-tiedostojen eksporttauksesta vastaava tapahtumankäsittelijä"""
         filename = self._main_service.export("txt")
         messagebox.showinfo("File created", f"Created file {filename}")
 
     def _export_pdf(self):
+        """.pdf-tiedostojen eksporttauksesta vastaava tapahtumankäsittelijä"""
         filename = self._main_service.export("pdf")
         messagebox.showinfo("File created", f"Created file {filename}")
 
     def timer(self):
+        """Looppi, joka päivittää timeria sekunnin välein niin kauan kun timer on päällä
+        """
         while self._main_service.get_timer():
             self._timeString.set(self._main_service.tick())
             self._frame.update()

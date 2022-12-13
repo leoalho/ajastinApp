@@ -4,11 +4,25 @@ from ui.views.main_view import MainView
 from ui.views.view_model import View
 
 class ProjectView(View):
+    """Luokka päänäkymää varten
+
+    Args:
+        View: Luokka perii luokan view_model
+    """
     def __init__(self, root, mover, main_service) -> None:
+        """Luokan konstruktori
+
+        Args:
+            root: Näkymän juuri
+            mover: Metodi näkymän vaihtamista varten
+            main_service: Toiminnallisuutta varten
+        """
         super().__init__(root, mover, main_service)
         self._initialize()
         
     def _initialize(self):
+        """Näkymän initialisointi
+        """
         self._frame = ttk.Frame(self._root)
         self._menubar()
         userInfo = ttk.Label(master=self._frame, text=f"Logged in as {self._main_service.get_username()}")
@@ -24,6 +38,8 @@ class ProjectView(View):
         new_project_button.grid(row=3, column=1)
     
     def _menubar(self):
+        """Menubarin initialisointi
+        """
         menubar = Menu(self._root)
         user_menu = Menu(menubar, tearoff=0)
 
@@ -35,20 +51,26 @@ class ProjectView(View):
         self._root.config(menu=menubar)
 
     def selected_item(self):
+        """palauttaa valitun projektin projektikentästä
+        """
         selected = self._projects.curselection()[0]
         return self._projects.get(selected)
 
     def _select_project(self):
+        """Projektin valinnan tapahtumakäsittelijä. Siirtää käyttäjän main_view:n
+        """
         project_name = self.selected_item()
         if project_name:
             self._main_service.set_current_project(project_name)
             self._mover(MainView(self._root, self._mover, self._main_service))
     
     def _new_project(self):
+        """Siirtää käyttäjän new_project-view:n"""
         from ui.views.new_project_view import NewProject
         self._mover(NewProject(self._root, self._mover, self._main_service))
 
     def _logout(self):
+        """Kirjautuu ulos ja siirtää käyttäjän login-view:n"""
         self._main_service.logout()
         from ui.views.login_view import LoginView
         self._mover(LoginView(self._root, self._mover, self._main_service))
