@@ -9,6 +9,7 @@ class NewUser(View):
     Args:
         View: Luokka perii luokan view_model
     """
+
     def __init__(self, root, mover, main_service) -> None:
         """Luokan konstruktori
 
@@ -17,12 +18,14 @@ class NewUser(View):
             mover: Metodi näkymän vaihtamista varten
             main_service: Toiminnallisuutta varten
         """
+
         super().__init__(root, mover, main_service)
         self._initialize()
 
     def _initialize(self):
         """Näkymän initialisointi
         """
+
         self._frame = ttk.Frame(master=self._root)
         general_info = ttk.Label(master=self._frame, text="Create a new username")
         username_label = ttk.Label(master=self._frame, text="Username: ")
@@ -48,6 +51,7 @@ class NewUser(View):
     def _create_user(self):
         """Uuden käyttäjän luonnin tapahtumankäsittelijä
         """
+
         username = self._username_entry.get()
         if username != "":
             if self._password_entry.get() != self._password_entry2.get():
@@ -62,4 +66,5 @@ class NewUser(View):
     def _cancel(self):
         """Palaa takaisin login_view:n
         """
+
         self._mover(login_view.LoginView(self._root, self._mover, self._main_service))
