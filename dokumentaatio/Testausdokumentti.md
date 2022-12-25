@@ -12,7 +12,7 @@ Repositorioien testaus tapahtuu user_repository ja project_repository testiluoki
 
 Projektin testauskattavuus on 70%. Ulkopuolelle on jäänyt erityisesti eksporttauksen ja hashauksen testaaminen ajanpuutteen vuoksi.
 
-![](.kuvat/coverage.png)
+![](./kuvat/coverage.png)
 
 ## Järjestelmätestaus
 
