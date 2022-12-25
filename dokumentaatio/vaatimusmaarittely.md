@@ -32,10 +32,10 @@ Sovelluksessa on toistaiseksi vain yksi käyttäjäryhmä: normaali käyttäjä
 - [x] Päänäkymässä näkyvät kyseisen projektin kaikki ajanottokerrat ja näiden summa sekä on mahdollista exportaa kyseinen näkymä .txt muodossa.
 - [x] Tulosteita on mahdollista laatia .pdf-muodossa (fpdf)
 - [x] Painikkeiden toiminnallisuuden siirtäminen ylälaidassa olevaan menubarin
-- [] Mahdollisuus vaihtaa nykyisen projektin nimeä
-- [] Mahdollisuus näyttää ajankäyttö per vrk, viikko tai kuukausi
 
 ## Jatkokehitysideoita
+- Mahdollisuus vaihtaa nykyisen projektin nimeä
+- Mahdollisuus näyttää ajankäyttö per vrk, viikko tai kuukausi
 - Ajastimen pysäyttämisen yhteydessä käyttäjän on mahdollita kirjoittaa kommentti viimeiseen ajanottoon liittyen
 - Mahdollista nähdä ajankäytön keskiarvot/mediaanit
 - github contributions -kaltainen näkymä

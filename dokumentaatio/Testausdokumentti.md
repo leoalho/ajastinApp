@@ -1,0 +1,1 @@
+![](.kuvat/coverage.png)

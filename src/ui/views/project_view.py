@@ -40,21 +40,28 @@ class ProjectView(View):
     def _menubar(self):
         """Menubarin initialisointi
         """
+
         menubar = Menu(self._root)
         user_menu = Menu(menubar, tearoff=0)
+        help_menu = Menu(menubar, tearoff=0)
 
         user_menu.add_command(label="Logout", command=self._logout)
         user_menu.add_separator()
         user_menu.add_command(label="Exit", command=self._root.destroy)
 
+        help_menu.add_command(label="Help", command=self._main_service.open_help)
+
         menubar.add_cascade(label="User", menu=user_menu)
+        menubar.add_cascade(label="Help", menu=help_menu)
         self._root.config(menu=menubar)
 
     def selected_item(self):
-        """palauttaa valitun projektin projektikentästä
+        """palauttaa valitun projektin projektikentästä, jos projekteja on olemassa
         """
-        selected = self._projects.curselection()[0]
-        return self._projects.get(selected)
+        if self._projects.size()>0:
+            selected = self._projects.curselection()[0]
+            return self._projects.get(selected)
+        return None
 
     def _select_project(self):
         """Projektin valinnan tapahtumakäsittelijä. Siirtää käyttäjän main_view:n

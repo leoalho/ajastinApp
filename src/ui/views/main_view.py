@@ -64,6 +64,7 @@ class MainView(View):
         user_menu = Menu(menubar, tearoff=0)
         project_menu = Menu(menubar, tearoff=0)
         export_menu = Menu(project_menu, tearoff=0)
+        help_menu = Menu(menubar, tearoff=0)
 
         user_menu.add_command(label="Logout", command=self._logout)
         user_menu.add_separator()
@@ -71,12 +72,15 @@ class MainView(View):
 
         export_menu.add_command(label='.txt', command=self._export_txt)
         export_menu.add_command(label='.pdf', command=self._export_pdf)
-        
+
         project_menu.add_cascade(label="Export as...", menu=export_menu)
         project_menu.add_command(label="Close", command=self._change_project)
 
+        help_menu.add_command(label="Help", command=self._main_service.open_help)
+
         menubar.add_cascade(label="User", menu=user_menu)
         menubar.add_cascade(label="Project", menu=project_menu)
+        menubar.add_cascade(label="Help", menu=help_menu)
         self._root.config(menu=menubar)
 
     def _toggle_timer(self):
@@ -101,22 +105,28 @@ class MainView(View):
     def _change_project(self):
         """Projektin vaihtamisen tapahtumankäsittelijä, siitää käyttäjän project_view-näkymään
         """
+
         self._main_service.close_project()
         self._mover(project_view.ProjectView(self._root, self._mover, self._main_service))
     
     def _export_txt(self):
-        """.txt-tiedostojen eksporttauksesta vastaava tapahtumankäsittelijä"""
+        """.txt-tiedostojen eksporttauksesta vastaava tapahtumankäsittelijä
+        """
+
         filename = self._main_service.export("txt")
         messagebox.showinfo("File created", f"Created file {filename}")
 
     def _export_pdf(self):
-        """.pdf-tiedostojen eksporttauksesta vastaava tapahtumankäsittelijä"""
+        """.pdf-tiedostojen eksporttauksesta vastaava tapahtumankäsittelijä
+        """
+
         filename = self._main_service.export("pdf")
         messagebox.showinfo("File created", f"Created file {filename}")
 
     def timer(self):
         """Looppi, joka päivittää timeria sekunnin välein niin kauan kun timer on päällä
         """
+
         while self._main_service.get_timer():
             self._timeString.set(self._main_service.tick())
             self._frame.update()

@@ -34,5 +34,9 @@
 - Lisätty mahdollisuus exporttaa .txt:n lisäksi .pdf muodossa "PyFPDF"-kirjaston avulla
 - Luotu menubar
 - Siirretty suurin osa mainView:n ja projectViewn:n painikkeista menubariin
-- Tehty uusi näkymä ja toiminnallisuus projektin nimen vaihtamiseen
 - Lisätty docstringit projektin luokille ja metodeille poislukien testit
+
+## Viikko 7
+- Lisätty Menubariin -help osio
+- Viimeistelty dokumentaatio
+- Lisätty testikattavuutta

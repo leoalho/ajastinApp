@@ -1,3 +1,4 @@
+import webbrowser
 from repositories.project_repository import project_repository
 from repositories.user_repository import user_repository
 from entities.timer import Timer
@@ -13,9 +14,11 @@ class MainService():
         user = Sovellusta käyttävä käyttäjä
         timer = Sovelluksen ajastin
     """
+
     def __init__(self) -> None:
         """Luokan konstruktori
         """
+
         self._user = None
         self._timer = Timer()
 
@@ -98,11 +101,13 @@ class MainService():
         Returns:
            string: tämänhetkinen aika
         """
+
         return self._timer.tick()
 
     def close_project(self):
         """Sulkee nykyisen projektin
         """
+
         self._timer.reset()
         self._timer.session_time = 0
         self._user.current_project = None
@@ -189,3 +194,10 @@ class MainService():
         """
         project_repository.create_project(self._user.db_id, project_name)
         self.set_projects()
+
+    def open_help(self):
+        """Avaa selaimessa linkin käyttöohjeeseen
+        """
+
+        webbrowser.open(
+            'https://github.com/leoalho/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md')

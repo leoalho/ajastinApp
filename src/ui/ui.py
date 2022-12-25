@@ -8,7 +8,7 @@ def initRoot(root):
         root: Tk-olio
     """
 
-    root.geometry("640x480")
+    root.geometry("400x480")
     root.resizable(False, False)
     root.title("Timer")
 
@@ -20,7 +20,7 @@ class UI:
         """Luokan konstruktori. Liittää mainservice-olion käyttöliittymään, sekä luo alkunäkymän (LoginView)
 
         Args:
-            root: 5k-olio
+            root: Tk-olio
         """
 
         self._main_service = MainService()

@@ -25,3 +25,23 @@ class TestMainService(unittest.TestCase):
         self.main_service.login("Test", "secret")
         self.main_service.logout()
         self.assertEqual(self.main_service.get_username(), None)
+
+    def test_get_projects_returns_one_project(self):
+        self.main_service.login("Test", "secret")
+        projects = self.main_service.get_projects()
+        self.assertEqual(len(projects), 1)
+
+    def test_get_project_names_returns_list_with_one_objects(self):
+        self.main_service.login("Test", "secret")
+        projects = self.main_service.get_project_names()
+        self.assertEqual(len(projects), 1)
+
+    def test_ticking_the_timer_adds_one_second(self):
+        self.main_service.login("Test", "secret")
+        time = self.main_service.tick()
+        self.assertEqual(time, "1 s")
+
+    def test_current_project_is_initially_none(self):
+        self.main_service.login("Test", "secret")
+        current_project = self.main_service.get_current_project()
+        self.assertEqual(current_project, None)

@@ -17,4 +17,5 @@
 | 3.12  | 1   | Lisätty dokumentaatioon sekvenssikaavio, luotu release | 
 | 12.12 | 4   | Luotu menubar |
 | 13.12 | 6   | Pdf exporttaus, dokumentaation kirjoittamista |
-| yht   | 49  | | 
+| 25.12 | 5   | Loppupalautuksen testautsta, dokumentaation viimeistelyä
+| yht   | 54  | | 

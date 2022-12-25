@@ -29,7 +29,7 @@ Sovelluksen entityt ovat Timer, User sekä Project. Projektin toiminnallisuudest
 
 ## Tietojen tallennus
 
-Sovelluken tiedot tallennetaan paikalliseen SQLite-tietokantaan. Sovelluksen pakkauksen repositorioiden luokat UserRepository sekä ProjectRepository toimivat ns. "data access objecteina". UserRepository vastaa käyttäjien tietojen tallettamista, ProjectRepository taas 
+Sovelluken tiedot tallennetaan paikalliseen SQLite-tietokantaan. Sovelluksen pakkauksen repositorioiden luokat UserRepository sekä ProjectRepository toimivat ns. "data access objecteina". UserRepository vastaa käyttäjien tietojen tallettamista, ProjectRepository taas projekteihin liittyvän tiedon tallettamista.
 
 ## Päätoiminnallisuudet
 
