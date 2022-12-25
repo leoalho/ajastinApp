@@ -48,6 +48,8 @@ Projektin valinnan jälkeen aukeaa sovelluksen päänäkymä.
 
 ![](./kuvat/paanakyma.png)
 
+Päänäkymässä näkyy tämänhetkinen ajanotto.
+
 ## Menubar
 
 Päänäkymässä olevan menubarin avulla voi tehdä käyttäjään ja projektiin liittyviä muutoksia. Menubar koostuu kolmesta erillisestä valikosta.

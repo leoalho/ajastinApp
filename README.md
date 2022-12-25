@@ -3,6 +3,7 @@ Sovelluksen tarkoituksena on seurata töiden ja muiden projektien ajankäyttöä
 
 ## Releaset
 [Viikon 6 release](https://github.com/leoalho/ot-harjoitustyo/releases/tag/viikko6)
+
 [Viikon 5 release](https://github.com/leoalho/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Dokumentaatio 
