@@ -8,7 +8,7 @@ def initRoot(root):
         root: Tk-olio
     """
 
-    root.geometry("400x480")
+    root.geometry("480x480")
     root.resizable(False, False)
     root.title("Timer")
 
