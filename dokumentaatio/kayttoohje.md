@@ -63,14 +63,14 @@ Exit: Sulkee koko sovelluksen
 
 ### Project
 
-![](.kuvat/menubarProject.png)
+![](./kuvat/menubarProject.png)
 
 Export as...: Exporttaa tulosteen ajanotoista joko .pdf tai .txt muodossa
 Close: Sulkee kyseisen projektin ja siirtyy projektinvalintanäkymään
 
 ### Help
 
-![](.kuvat/menubarHelp.png)
+![](./kuvat/menubarHelp.png)
 
 Help: Avaa käyttäjän oletusselaimessa käyttöohjeen
 

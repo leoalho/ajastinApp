@@ -25,7 +25,11 @@ classDiagram
     main_service -- project_repository
     main_service -- user_repository
 ```
-Sovelluksen entityt ovat Timer, User sekä Project. Projektin toiminnallisuudesta vastaa olio main_service, joka pääsee käsiksi repositorioihin.
+Sovelluksen entityt ovat Timer, User sekä Project. Projektin toiminnallisuudesta vastaa olio main_service, joka pääsee käsiksi repositorioihin user_repository ja project_repository.
+
+## Ulkoiset kirjastot
+
+Sovellus hyödyntää bcrypt-kirjastoa salasanojen hashaukseen, sekä fpdf-kirjastoa pdf-tiedostojen luomiseen. 
 
 ## Tietojen tallennus
 

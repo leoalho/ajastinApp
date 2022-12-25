@@ -12,6 +12,7 @@ Sovelluksen tarkoituksena on seurata töiden ja muiden projektien ajankäyttöä
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 - [Changelog](./dokumentaatio/changelog.md)
 - [arkkitehtuuri](./dokumentaatio/arkkitehtuuri.md)
+- [testausdokumentti](./dokumentaatio/Testausdokumentti.md)
 
 ## Asennus
 
